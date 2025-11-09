@@ -4,7 +4,7 @@ from typing import Final
 
 from requests import Response, get
 
-from data_models import RaceSession, LeaderboardEntryRaces, LeaderboardEntryPoints, LeaderboardEntryAccuracy, \
+from klavia_api.data_models import RaceSession, LeaderboardEntryRaces, LeaderboardEntryPoints, LeaderboardEntryAccuracy, \
     LeaderboardEntryWpm
 
 """
