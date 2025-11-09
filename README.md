@@ -1,10 +1,14 @@
 # Klavia-API
 A python package for sending requests to the Rest API of the browser / typing game Klavia.
 
-## Examples:
 
-### Basic:
-Loads access token from local .env file and gets wpm leaderboards.
+## Installation
+1. Install the module by adding it to your requirements.txt file like so:
+```git+https://github.com/devHenrik123/Klavia-API.git@main```
+2. Install dependencies like so: ```pip install -r requirements.txt```
+
+## Basic Example:
+Loads access token from local .env file and gets wpm leaderboards for the entire season.
 ```
 if __name__ == "__main__":
     
@@ -14,9 +18,6 @@ if __name__ == "__main__":
     env_vars: Final[dict[str, str | None]] = dotenv_values(Path(__file__).parent.parent.resolve() / ".env")
     
     api_token: Final[str] = env_vars["api_token"]
-    # KlaviaAPI(api_token).race_sessions_ongoing()
-    # KlaviaAPI(api_token).leaderboards_races(TimePeriod.Season)
-    # KlaviaAPI(api_token).leaderboards_points(TimePeriod.Season)
-    # KlaviaAPI(api_token).leaderboards_accuracy(TimePeriod.Season)
-    wpm_leaderboard: list[LeaderboardEntryWpm] = KlaviaAPI(api_token).leaderboards_wpm(TimePeriod.Season)
+    api: KlaviaAPI = KlaviaAPI(api_token)
+    wpm_leaderboard: list[LeaderboardEntryWpm] = api.leaderboards_wpm(TimePeriod.Season)
 ```
